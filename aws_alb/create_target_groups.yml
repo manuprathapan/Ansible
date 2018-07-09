@@ -1,0 +1,14 @@
+---
+  - name: Create a target group
+    hosts: localhost
+    connection: local
+    gather_facts: false
+    tasks:
+      - name: Create a target group
+        elb_target_group:
+          name: mytarget-group
+          region: ap-south-1
+          protocol: http
+          port: 80
+          vpc_id: vpc-1b1a5d72
+          state: present

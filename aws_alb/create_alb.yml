@@ -1,0 +1,16 @@
+---
+  - name: Create a load balancer
+    hosts: localhost
+    connection: local
+    gather_facts: false
+    tasks:
+      - name: Create an ALB and attach a listener
+        elb_application_lb:
+          name: myelb
+          region: ap-south-1
+          security_groups:
+            - sg-9339d5fb
+          subnets:
+            - subnet-0f4a0a66
+            - subnet-3fd46e72
+          state: present

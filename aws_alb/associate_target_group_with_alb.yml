@@ -1,0 +1,12 @@
+---
+  - name: Create a target group
+    hosts: localhost
+    connection: local
+    gather_facts: false
+    tasks:
+      - name: Create a target group
+        elb_target:
+          region: ap-south-1
+          target_group_name: mytarget-group
+          target_id: arn:aws:elasticloadbalancing:ap-south-1:878611794755:loadbalancer/app/myelb/fcf3880a3c838744
+          state: present
