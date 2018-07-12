@@ -1,0 +1,12 @@
+---
+  - hosts: localhost
+    gather_facts: false
+    become: true
+
+    tasks:
+    - name: Run a python script
+      command: python /home/manu/Desktop/Python/inspector_run.py
+      args:
+        chdir: /home/manu/Desktop/Python 
+      delegate_to: localhost
+      run_once: True
